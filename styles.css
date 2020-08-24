@@ -1,0 +1,71 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to right, #aabeff, #85e2c6);
+}
+
+.calculator-grid {
+  /* all the items are arranged in a grid */
+  display: grid;
+  /* all the things come to the center */
+  justify-content: center;
+  /* fill the entire box/grid without any space in between */
+  align-content: center;
+  /* height between each button */
+  min-height: 100vh;
+  /* this means there are 4 colums each of 100px */
+  grid-template-columns: repeat(4, 100px);
+  /* min size of row is 120px and there are 5 rows */
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.span-two {
+  /* this will take two columns worth of space */
+  grid-column: span 2;
+}
+
+.calculator-grid > button:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.output {
+  /* from first row to the last row, i.e fill  the entire part */
+  grid-column: 1/ -1;
+  background-color: rgba(0, 0, 0, 0.75);
+  /* align the data inside the box i.e from vertical to horizontal direction */
+  display: flex;
+  /* this will keep elements to one side*/
+  align-items: flex-end;
+  /* this will put as much space as possible between the elements */
+  justify-content: space-around;
+  /* this will line the elements vertically instead of side by side*/
+  flex-direction: column;
+  padding: 10px;
+  /* this will break the word */
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.output .previous-operand {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  color: white;
+  font-size: 2.5rem;
+}
